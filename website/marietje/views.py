@@ -50,13 +50,14 @@ class PlayerRefreshView(TemplateView):
     """Refresh the player."""
 
     @staticmethod
-    def render_template(player, request):
+    def render_template(player, request, controls):
         """Render the player template."""
-        return get_template("marietje/player.html").render(render_player({"request": request}, player, refresh=True))
+        return get_template("marietje/player.html").render(render_player({"request": request}, player, refresh=True, controls=controls))
 
     def post(self, request, player):
         """POST request for refreshing the player."""
-        return JsonResponse({"data": self.render_template(player, request)})
+        controls = request.GET.get('controls', 'true') == 'true'
+        return JsonResponse({"data": self.render_template(player, request, controls)})
 
 
 class QueueRefreshView(TemplateView):

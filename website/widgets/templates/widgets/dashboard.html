@@ -1,0 +1,43 @@
+{% extends 'tosti/base.html' %}
+{% load static marietje %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'widgets/css/dashboard.css' %}"/>
+{% endblock %}
+
+{% block header %}
+    <nav class="navbar navbar-expand-md site-header navbar-dark navbar-min-height">
+        <div class="container">
+            <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+            </div>
+            <div class="mx-auto order-0 navbar-collapse collapse position-relative">
+                <a class="navbar-brand drop-out-header" href="/"><img src="{% static 'tosti/svg/TOSTI-logo.svg' %}" height="120"/></a>
+            </div>
+            <div class="order-0 d-block d-md-none">
+                <a class="navbar-brand drop-out-header-mobile" href="/"><img src="{% static 'tosti/svg/TOSTI-logo.svg' %}" height="80"/></a>
+            </div>
+            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2 ">
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block page %}
+    <div class="widget-container">
+        {% for widget in widgets %}
+            {% if widget.width == 1 %}
+                <div class="widget">
+                    {{ widget.html|safe }}
+                </div>
+            {% elif widget.width == 0 %}
+                <div class="widget widget-no-grow">
+                    {{ widget.html|safe }}
+                </div>
+            {% else %}
+                <div class="widget widget-width-full">
+                    {{ widget.html|safe }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

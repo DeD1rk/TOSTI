@@ -43,7 +43,7 @@
         add_update_list(
             update_and_replace,
             [
-                "{% url 'marietje:player_refresh' player=player %}",
+                "{% url 'marietje:player_refresh' player=player %}{% if not controls %}?controls=false{% endif %}",
                 document.getElementById('player-container-{{ player.id }}'),
                 {'controls': {% if controls %}true{% else %}false{% endif %}}
             ]

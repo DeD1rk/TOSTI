@@ -1,0 +1,44 @@
+.navbar-min-height {
+    min-height: 60px;
+}
+
+html {
+    min-width: 400px;
+    background-color: rgba(232, 179, 101, 1);
+    min-height: 100vh;
+}
+
+.page {
+    width: 100%;
+    color: white;
+    padding-top: 40px;
+    background-color: rgba(232, 179, 101, 1);
+}
+
+.widget-container {
+    display: flex;
+    margin: 25px;
+}
+
+.widget {
+    flex-grow: 1;
+    max-width: 50%;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.9);
+    padding: 20px;
+    color: black;
+}
+
+.widget-no-grow {
+    flex-grow: 0;
+}
+
+.widget-width-full {
+    max-width: 100%;
+}
+
+@media screen and (max-width: 776px) {
+    .widget {
+        max-width: 100%;
+    }
+}

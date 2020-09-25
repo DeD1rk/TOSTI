@@ -41,4 +41,5 @@ urlpatterns = [
     path("users/", include(("users.urls", "users"), namespace="users"),),
     path("shifts/", include(("orders.urls", "orders"), namespace="orders"),),
     path("marietje/", include(("marietje.urls", "marietje"), namespace="marietje"),),
+    path("widgets/", include(("widgets.urls", "widgets"), namespace="widgets"),),
 ]

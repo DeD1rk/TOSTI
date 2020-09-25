@@ -13,3 +13,4 @@ class OrdersConfig(AppConfig):
         :return: None
         """
         from orders import signals  # noqa
+        from orders import widgets

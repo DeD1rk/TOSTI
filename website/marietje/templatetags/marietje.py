@@ -14,12 +14,12 @@ def render_queue_list(player, refresh=False, max_items=10):
 
 
 @register.inclusion_tag("marietje/player.html", takes_context=True)
-def render_player(context, player, refresh=False):
+def render_player(context, player, refresh=False, controls=True):
     """Render queue."""
     return {
         "refresh": refresh,
         "player": player,
-        "controls": context["request"].user in player.get_users_with_control_permissions(),
+        "controls": context["request"].user in player.get_users_with_control_permissions() and controls,
     }
 
 

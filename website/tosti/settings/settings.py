@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "venues",
     "marietje",
     "orders",
+    "widgets",
 ]
 
 ANONYMOUS_USER_NAME = None
