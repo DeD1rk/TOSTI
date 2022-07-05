@@ -26,6 +26,11 @@ def user_is_blacklisted(user):
     return OrderBlacklistedUser.objects.filter(user=user).exists()
 
 
+def user_gets_prioritized_orders(user):
+    """User's order get put first in the queue."""
+    return True  # TODO how exactly do we want to determine this
+
+
 def execute_data_minimisation(dry_run=False):
     """
     Remove order history from users that is more than 31 days old.
@@ -125,6 +130,7 @@ def add_user_order(product: Product, shift: Shift, user: User) -> Order:
         type=Order.TYPE_ORDERED,
         user=user,
         user_association=user.association,
+        prioritize=user_gets_prioritized_orders(user),
     )
 
 

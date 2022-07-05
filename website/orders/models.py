@@ -503,10 +503,12 @@ class Order(models.Model):
 
     type = models.PositiveIntegerField(choices=TYPES, default=0)
 
+    prioritize = models.BooleanField(default=False)
+
     class Meta:
         """Meta class."""
 
-        ordering = ["created"]
+        ordering = ["shift", "prioritize", "created"]
 
     def __str__(self):
         """
